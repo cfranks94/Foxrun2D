@@ -17,7 +17,7 @@ var _dying: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_player_ref.get_tree().get_nodes_in_group(GameManager.GROUP_PLAYER)[0]
+	_player_ref = get_tree().get_nodes_in_group(GameManager.GROUP_PLAYER)[0]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

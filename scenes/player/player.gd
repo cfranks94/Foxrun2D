@@ -56,7 +56,7 @@ func get_input() -> void:
 		sprite_2d.flip_h = false
 	if Input.is_action_just_pressed("jump") == true:
 		velocity.y = JUMP_VELOCITY
-		SoundManager.play_clip(sound_player, SoundManager.SOUND_JUMP)
+		
 	
 	velocity.y = clampf(velocity.y, JUMP_VELOCITY, MAX_FALL)
 

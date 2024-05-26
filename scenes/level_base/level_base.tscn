@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmqhhp1qlqlr3"]
+[gd_scene load_steps=10 format=3 uid="uid://bmqhhp1qlqlr3"]
 
 [ext_resource type="Texture2D" uid="uid://brqhrtvawy33" path="res://assets/tiles/Terrain (16x16).png" id="1_tqjse"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xakfw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgtn1fvcn7gw1" path="res://scenes/player/player.tscn" id="3_hekbh"]
 [ext_resource type="PackedScene" uid="uid://c1owmy5gf78dg" path="res://enemies/snail/snail.tscn" id="5_7vhrd"]
 [ext_resource type="PackedScene" uid="uid://d1l0vkyx3facr" path="res://enemies/frog/frog.tscn" id="6_7kcsb"]
+[ext_resource type="PackedScene" uid="uid://pea062mmh51w" path="res://enemies/eagle/eagle.tscn" id="7_vrot4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcjv"]
 texture = ExtResource("1_tqjse")
@@ -519,6 +520,7 @@ texture = ExtResource("1_tqjse")
 
 [sub_resource type="TileSet" id="TileSet_s2k0x"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_evcjv")
 
 [node name="LevelBase" type="Node2D"]
@@ -534,10 +536,13 @@ position = Vector2(256, -150)
 zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_hekbh")]
-position = Vector2(270, -128)
+position = Vector2(474, -35)
+
+[node name="Eagle" parent="." instance=ExtResource("7_vrot4")]
+position = Vector2(491, -276)
 
 [node name="Snail" parent="." instance=ExtResource("5_7vhrd")]
-position = Vector2(716, -39)
+position = Vector2(601, -27)
 
 [node name="Frog" parent="." instance=ExtResource("6_7kcsb")]
-position = Vector2(392, -186)
+position = Vector2(196, -152)
