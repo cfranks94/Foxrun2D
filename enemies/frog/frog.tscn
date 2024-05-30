@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1l0vkyx3facr"]
+[gd_scene load_steps=14 format=3 uid="uid://d1l0vkyx3facr"]
 
 [ext_resource type="PackedScene" uid="uid://b5oexlrhxhki8" path="res://enemies/enemy_base/enemy_base.tscn" id="1_lvnwl"]
 [ext_resource type="Script" path="res://enemies/frog/frog.gd" id="2_xa77j"]
@@ -69,6 +69,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gv8k"]
 size = Vector2(16, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bex1v"]
+radius = 7.0
+
 [node name="Frog" instance=ExtResource("1_lvnwl")]
 script = ExtResource("2_xa77j")
 
@@ -83,5 +86,9 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_8gv8k")
 
 [node name="JumpTimer" type="Timer" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_bex1v")
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

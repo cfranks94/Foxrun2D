@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgtn1fvcn7gw1"]
+[gd_scene load_steps=12 format=3 uid="uid://cgtn1fvcn7gw1"]
 
 [ext_resource type="Texture2D" uid="uid://bau50v57qqtna" path="res://assets/player/player.png" id="1_6m050"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_uvmiw"]
@@ -114,6 +114,10 @@ _data = {
 "run": SubResource("Animation_lgl65")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxd8q"]
+radius = 7.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_uvmiw")
@@ -144,3 +148,13 @@ IDLE
 0,0"
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_hxd8q")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

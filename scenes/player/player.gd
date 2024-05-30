@@ -99,6 +99,10 @@ func set_state(new_state: PLAYER_STATE) -> void:
 			animation_player.play("fall")
 
 
+func _on_hitbox_area_entered(area):
+	pass # Replace with function body.
+
+
 
 
 
