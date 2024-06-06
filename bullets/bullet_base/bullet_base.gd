@@ -13,16 +13,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_check_expired(delta)
+	check_expired(delta)
 	position += _direction * delta
 
 
-func _setup(dir: Vector2, life_span: float, speed: float) -> void:
+func setup(dir: Vector2, life_span: float, speed: float) -> void:
 	_direction = dir.normalized() * speed
 	_life_span = life_span
 
 
-func _check_expired(delta: float) -> void:
+func check_expired(delta: float) -> void:
 	_life_time += delta
 	if _life_time > _life_span:
 		queue_free()

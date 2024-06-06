@@ -6,6 +6,7 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 @onready var debug_label = $DebugLabel
 @onready var sound_player = $SoundPlayer
+@onready var shooter = $Shooter
 
 
 var Gravity: float = 1000.0
@@ -35,6 +36,9 @@ func _physics_process(delta):
 	calculate_states()
 	update_debug_label()
 	
+	if Input.is_action_just_pressed("shoot") == true:
+		shoot()
+	
 
 func update_debug_label() -> void:
 	debug_label.text = "floor:%s\n%s\n%.0f,%.0f" % [
@@ -42,6 +46,13 @@ func update_debug_label() -> void:
 		PLAYER_STATE.keys()[_state],
 		velocity.x, velocity.y
 	]
+
+
+func shoot() -> void:
+	if sprite_2d.flip_h == true:
+		shooter.shoot(Vector2.LEFT)
+	else:
+		shooter.shoot(Vector2.RIGHT)
 
 
 func get_input() -> void:
